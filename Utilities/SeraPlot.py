@@ -3,7 +3,6 @@ from nilearn import plotting, datasets; from nilearn.surface import load_surf_da
 warnings.filterwarnings("ignore", category=RuntimeWarning)
 
 
-
 def plot_signal2glasser(signal, path, save_plot, mode='2D', view='lateral', hemisphere='left',cmap='jet', colorbar = True):
 	"""Function that plots a signal on the glasser atlas. The surface mesh is the fslaverage in high resolution.
 
