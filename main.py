@@ -16,7 +16,7 @@ save_png_to = '/Users/loukas/Desktop/'
 # signal = np.random.randn(180,1)
 signal = np.arange(1,181).reshape(-1,1)
 
-# FOR MATLAB LOVERS: load from .mat file, uncomment the following 2 lines
+# For matlab users: load signal from .mat file -> uncomment the following 2 lines
 # import scipy.io
 # signal = scipy.io.loadmat('/Users/loukas/Downloads/Sera.mat')['D'][:180]
 
