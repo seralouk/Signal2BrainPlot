@@ -26,5 +26,5 @@ plot_signal2glasser(signal, path_to_surfaces, save_png_to, mode='2D', view='late
 
 # 3D plot, html will automatically be saved and opened on your browser
 # Note: IT'S INTERACTIVE :)
-plot_signal2glasser(signal, path_to_surfaces, save_png_to, mode='3D', hemisphere='left', cmap='jet',  colorbar = True)
+plot_signal2glasser(signal, path_to_surfaces, save_png_to, mode='3D', hemisphere='left', cmap='jet', colorbar = True)
 
