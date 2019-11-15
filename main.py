@@ -9,7 +9,7 @@ from SeraPlot import plot_signal2glasser
 # Note: do not change anything to ensure full functionality
 path_to_surfaces = '/Users/loukas/Desktop/Signal2Glasser/'
 
-# Where to save the plot. The plot will be saved only in the 2D plotting case.
+# Where to save the plots.
 save_png_to = '/Users/loukas/Desktop/'
 
 # The signal (should be a vector with 180 elements)
