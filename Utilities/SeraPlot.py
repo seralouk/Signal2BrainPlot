@@ -4,7 +4,7 @@ warnings.filterwarnings("ignore", category=RuntimeWarning)
 
 
 
-def plot_signal2glasser(signal, path, save_plot, mode='2D', view='lateral', hemisphere='left',cmap='jet'):
+def plot_signal2glasser(signal, path, save_plot, mode='2D', view='lateral', hemisphere='left',cmap='jet', colorbar = True):
 	"""Function that plots a signal on the glasser atlas. The surface mesh is the fslaverage in high resolution.
 
 	Author: Serafeim Loukas, EPFL, Nov 2019
@@ -32,6 +32,9 @@ def plot_signal2glasser(signal, path, save_plot, mode='2D', view='lateral', hemi
 
     cmap : string, optional (default='jet')
         The colorbar's cmap
+
+    colorbar : Boolean, optional (default='True')
+        Display the colorbar
 
     Attributes
     ----------
@@ -78,7 +81,7 @@ def plot_signal2glasser(signal, path, save_plot, mode='2D', view='lateral', hemi
 	# Plotting
 	if mode=='2D':
 		plotting.plot_surf_roi(surface["pial_{}".format(hemisphere)], roi_map = parcellation, hemi = hemisphere, view = view, bg_map = surface["sulc_{}".format(hemisphere)], bg_on_data=True,
-darkness = .5, output_file = save_plot +'2D_mapped_signal.png', cmap = cmap, colorbar = True)
+darkness = .5, output_file = save_plot +'2D_mapped_signal.png', cmap = cmap, colorbar = False)
 	else:
 		print("For the 3D case, the input arguments 'view' is omitted")
 		view = plotting.view_surf(surface["pial_{}".format(hemisphere)], parcellation, cmap = cmap, bg_map = surface["sulc_{}".format(hemisphere)], symmetric_cmap = False)
