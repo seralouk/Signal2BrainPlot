@@ -2,11 +2,11 @@
 
 ***
 
-## A small toolbox to plot brain signals on the Glasser 360 region cortical parcellation.
+### A small toolbox to plot brain signals on the Glasser 360 region cortical parcellation.
 
 ***
 
-##### Dependencies: Numpy, Nilearn
+##### Dependencies: Numpy, Nilearn, SciPy (mainly for Matlab users).
 ##### The code was tested using Python 3.7.
 
 ***
@@ -33,7 +33,7 @@ signal = np.arange(1,181).reshape(-1,1)
 
 # For matlab users: load signal from .mat file -> uncomment the following 2 lines
 # import scipy.io
-# signal = scipy.io.loadmat('/Users/loukas/Downloads/Sera.mat')['D'][:180]
+# signal = scipy.io.loadmat('/Users/.../something.mat')['signal']
 
 # Call the function
 # 2D plot, does not pop-up, figure is saved
@@ -41,5 +41,5 @@ plot_signal2glasser(signal, path_to_surfaces, save_png_to, mode='2D', view='late
 
 # 3D plot, html will automatically be saved and opened on your browser
 # Note: IT'S INTERACTIVE :)
-plot_signal2glasser(signal, path_to_surfaces, save_png_to, mode='3D', hemisphere='left', cmap='jet',  colorbar = True)
+plot_signal2glasser(signal, path_to_surfaces, save_png_to, mode='3D', hemisphere='left', cmap='jet', colorbar = True)
 ```
