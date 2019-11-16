@@ -6,8 +6,8 @@
 
 ***
 
-##### Dependencies: Numpy, Nilearn, SciPy (mainly for Matlab users).
-##### The code was tested using Python 3.7.
+##### Dependencies: `Numpy`, `Nilearn`, `SciPy` (mainly for Matlab users).
+##### The code was tested using `Python 3.7`.
 
 ***
 
