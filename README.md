@@ -20,7 +20,6 @@ from nilearn import plotting, datasets; from nilearn.surface import load_surf_da
 sys.path.append('/Users/loukas/Desktop/Signal2Glasser/Utilities/')
 from SeraPlot import plot_signal2glasser
 
-
 # Path to the folder that contains the fslaverage & glasser subfolders
 path_to_surfaces = '/Users/loukas/Desktop/Signal2Glasser/'
 
