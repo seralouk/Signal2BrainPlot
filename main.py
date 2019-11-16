@@ -10,7 +10,9 @@ from SeraPlot import plot_signal2glasser
 path_to_surfaces = '/Users/loukas/Desktop/Signal2Glasser/'
 
 # Where to save the plots.
-save_png_to = '/Users/loukas/Desktop/'
+save_png_to = '/Users/loukas/Desktop/Signal2Glasser/example_outputs/'
+if not os.path.exists(save_png_to):
+	os.mkdir(save_png_to)
 
 # The signal (should be a vector with 180 elements)
 #signal = np.random.randn(180,1)
