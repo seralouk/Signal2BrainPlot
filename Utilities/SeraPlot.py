@@ -1,9 +1,9 @@
-import numpy as np, os, warnings
+import numpy as np, os, warnings, matplotlib.pyplot as plt
 from nilearn import plotting, datasets; from nilearn.surface import load_surf_data
 warnings.filterwarnings("ignore", category=RuntimeWarning)
 
 
-def plot_signal2glasser(signal, path, save_plot, mode='2D', view='lateral', hemisphere='left',cmap='jet', colorbar = True):
+def plot_signal2glasser(signal, path, save_plot, mode='2D', view='lateral', hemisphere='left',cmap='jet', colorbar = True, black_bg=True):
 	"""Function that plots a signal on the glasser atlas. The surface mesh is the fslaverage in high resolution.
 
 	Author: Serafeim Loukas, EPFL, Nov 2019
@@ -34,6 +34,9 @@ def plot_signal2glasser(signal, path, save_plot, mode='2D', view='lateral', hemi
 
     colorbar : Boolean, optional (default='True')
         Display the colorbar
+
+    black_bg : Boolean, optional (default='True')
+        Use black background       
 
     Attributes
     ----------
@@ -79,11 +82,12 @@ def plot_signal2glasser(signal, path, save_plot, mode='2D', view='lateral', hemi
 
 	# Plotting
 	if mode=='2D':
-		plotting.plot_surf_roi(surface["pial_{}".format(hemisphere)], roi_map = parcellation, hemi = hemisphere, view = view, bg_map = surface["sulc_{}".format(hemisphere)], bg_on_data=True,
-darkness = .5, output_file = save_plot +'2D_mapped_signal.png', cmap = cmap, colorbar = False)
+		plotting.plot_surf_roi(surface["pial_{}".format(hemisphere)], roi_map = parcellation, hemi = hemisphere, view = view, bg_map = surface["sulc_{}".format(hemisphere)], bg_on_data = True,
+darkness = .5, output_file = save_plot +'2D_mapped_signal.png', cmap = cmap, colorbar = colorbar, black_bg=black_bg, figure=plt.figure(dpi=400))
+	
 	else:
 		print("For the 3D case, the input arguments 'view' is omitted")
-		view = plotting.view_surf(surface["pial_{}".format(hemisphere)], parcellation, cmap = cmap, bg_map = surface["sulc_{}".format(hemisphere)], symmetric_cmap = False)
+		view = plotting.view_surf(surface["pial_{}".format(hemisphere)], parcellation, cmap = cmap, bg_map = surface["sulc_{}".format(hemisphere)], symmetric_cmap = False, black_bg = black_bg, colorbar = colorbar)
 		view.save_as_html(save_plot +'3D_mapped_signal.html')
 		view.open_in_browser()
 
