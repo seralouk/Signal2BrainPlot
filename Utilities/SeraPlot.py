@@ -151,11 +151,6 @@ def plot_signal2glasser_3D(signal, path, save_plot, cmap='jet', colorbar = True,
 	parcellation_left = load_surf_data(path + 'glasser/' + parcellation_files[0])
 	parcellation_right = load_surf_data(path + 'glasser/' + parcellation_files[1])
 	
-	# Check view input argument
-	available_views = ['lateral', 'medial', 'dorsal', 'ventral', 'anterior', 'posterior']
-	if view not in available_views:
-		raise ValueError("Invalid 'view' choice, options : {}".format(available_views))
-	
 	# Check signal dimensions
 	if signal.shape[0] != 360:
 		raise ValueError("The signal should be an [360,1] array")
