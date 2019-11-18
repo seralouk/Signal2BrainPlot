@@ -57,5 +57,5 @@ plot_signal2glasser_2D(signal_2D, path_to_surfaces, save_png_to, view='lateral',
 signal_3D = np.concatenate([np.arange(1,181),np.arange(1,181)]).reshape(-1,1) # plot the glasser atlas
 # signal_3D = np.random.randn(360,1)
 
-plot_signal2glasser_3D(signal_3D, path_to_surfaces, save_png_to, hemisphere='left', cmap='jet', colorbar = True, black_bg=True, symmetric_cmap=False)
+plot_signal2glasser_3D(signal_3D, path_to_surfaces, save_png_to, cmap='jet', colorbar = True, black_bg=True, symmetric_cmap=False)
 ```
