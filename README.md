@@ -39,7 +39,7 @@ if not os.path.exists(save_png_to):
 #This should be a vector with 180 elements encoding the regional values of the desired hemisphere.
 
 #Example:
-#signal_2D = np.random.randn(180,1) # plot random signal
+#signal_2D = np.random.randn(180,1) # plot a random signal
 signal_2D = np.arange(1,181).reshape(-1,1) # plot the glasser atlas
 
 #For matlab users: load signal from .mat file -> uncomment the following 2 lines
@@ -54,13 +54,13 @@ plot_signal2glasser_2D(signal_2D, path_to_surfaces, save_png_to, view='lateral',
 ##############################################################################
 
 # The signal for 3D visualization (should be a vector with 360 elements)
-# The first 180 values should belong to LEFT hemishere and the remaining to the RIGHT
-# 3D plot, html will automatically be saved and opened on your browser
-# Note: IT'S INTERACTIVE
+# The first 180 elements of the vector should belong to LEFT hemishere and the remaining to the RIGHT
+# 3D plot, HTML will automatically be saved and will open on your default browser
+# Note: It's interactive (zooming, rotations, saving options are available)
 
 #Example:
 signal_3D = np.concatenate([np.arange(1,181),np.arange(1,181)]).reshape(-1,1) # plot the glasser atlas
-#signal_3D = np.random.randn(360,1)
+#signal_3D = np.random.randn(360,1) # plot a random signal
 
 #For matlab users: load signal from .mat file -> uncomment the following 2 lines
 #import scipy.io
@@ -68,4 +68,11 @@ signal_3D = np.concatenate([np.arange(1,181),np.arange(1,181)]).reshape(-1,1) # 
 
 # Call the function: 3D plot, it will pop-up on your default browser
 plot_signal2glasser_3D(signal_3D, path_to_surfaces, save_png_to, cmap='jet', colorbar = True, black_bg=True, symmetric_cmap=False)
+```
+
+For more details about the functions use:
+
+```
+help(plot_signal2glasser_2D)
+help(plot_signal2glasser_3D)
 ```
