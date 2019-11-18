@@ -82,7 +82,8 @@ def plot_signal2glasser_2D(signal, path, save_plot, view='lateral', hemisphere='
 	plotting.plot_surf_roi(surface["pial_{}".format(hemisphere)], roi_map = parcellation, hemi = hemisphere, view = view, bg_map = surface["sulc_{}".format(hemisphere)], bg_on_data = True,
 darkness = 0.6, output_file = save_plot +'2D_mapped_signal.png', cmap = cmap, colorbar = colorbar, black_bg=black_bg, figure=plt.figure(dpi=400))
 
-	return print("All done. The 2D plot was saved in: {}".format(save_plot))
+	print("All done. The 2D plot was saved in: {}".format(save_plot))
+	return
 
 
 
@@ -183,7 +184,8 @@ def plot_signal2glasser_3D(signal, path, save_plot, cmap='jet', colorbar = True,
 	view.save_as_html(save_plot +'3D_mapped_signal.html')
 	view.open_in_browser()
 
-	return print("All done. The 2D plot was saved in: {}".format(save_plot))
+	print("All done. The 2D plot was saved in: {}".format(save_plot))
+	return
 
 
 
