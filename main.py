@@ -31,7 +31,8 @@ signal_2D = np.arange(1,181).reshape(-1,1) # plot the glasser atlas
 #signal = scipy.io.loadmat('/Users/loukas/Desktop/Signal2Glasser/Utilities/Sera.mat')['D'][:180]
 
 # Call the function: 2D plot, does not pop-up, figure is saved
-plot_signal2glasser_2D(signal_2D, path_to_surfaces, save_png_to, view='lateral', hemisphere='left', cmap='jet', colorbar = False, black_bg=True)
+plot_signal2glasser_2D(signal_2D, path_to_surfaces, save_png_to, view='lateral', \
+						hemisphere='left', cmap='jet', colorbar = True, black_bg=True)
 
 ##############################################################################
 ##############################################################################
@@ -51,5 +52,7 @@ signal_3D = np.concatenate([np.arange(1,181),np.arange(1,181)]).reshape(-1,1) # 
 #signal_3D = scipy.io.loadmat('/Users/loukas/Desktop/Signal2Glasser/Utilities/Sera.mat')['D'][:]
 
 # Call the function: 3D plot, it will pop-up on your default browser
-plot_signal2glasser_3D(signal_3D, path_to_surfaces, save_png_to, cmap='jet', colorbar = True, black_bg=True, symmetric_cmap=False)
+plot_signal2glasser_3D(signal_3D, path_to_surfaces, save_png_to, cmap='jet', \
+						colorbar = True, black_bg=True, symmetric_cmap=False, \
+						colorbar_height=0.5, colorbar_fontsize=15)
 

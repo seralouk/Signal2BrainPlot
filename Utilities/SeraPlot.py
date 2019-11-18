@@ -3,6 +3,8 @@ from nilearn import plotting, datasets; from nilearn.surface import load_surf_da
 warnings.filterwarnings("ignore", category=RuntimeWarning)
 
 
+
+
 def plot_signal2glasser_2D(signal, path, save_plot, view='lateral', hemisphere='left',cmap='jet', colorbar = True, black_bg=True):
 	"""Function that plots a signal on the glasser atlas. The surface mesh is the fslaverage in high resolution.
 
@@ -79,9 +81,12 @@ def plot_signal2glasser_2D(signal, path, save_plot, view='lateral', hemisphere='
 	parcellation = parcellation.ravel()
 
 	# Plotting
-	plotting.plot_surf_roi(surface["pial_{}".format(hemisphere)], roi_map = parcellation, hemi = hemisphere, view = view, bg_map = surface["sulc_{}".format(hemisphere)], bg_on_data = True,
-darkness = 0.6, output_file = save_plot +'2D_mapped_signal.png', cmap = cmap, colorbar = colorbar, black_bg=black_bg, figure=plt.figure(dpi=400))
+	plotting.plot_surf_roi(surface["pial_{}".format(hemisphere)], roi_map = parcellation, \
+		hemi = hemisphere, view = view, bg_map = surface["sulc_{}".format(hemisphere)], \
+		bg_on_data = True, darkness = 0.6, output_file = save_plot +'2D_mapped_signal.png', \
+		cmap = cmap, colorbar = colorbar, black_bg=black_bg, figure=plt.figure(dpi=400))
 
+	plotting.show()
 	print("All done. The 2D plot was saved in: {}".format(save_plot))
 	return
 
@@ -89,7 +94,7 @@ darkness = 0.6, output_file = save_plot +'2D_mapped_signal.png', cmap = cmap, co
 
 
 
-def plot_signal2glasser_3D(signal, path, save_plot, cmap='jet', colorbar = True, black_bg=True, symmetric_cmap=False):
+def plot_signal2glasser_3D(signal, path, save_plot, cmap='jet', colorbar = True, black_bg=True, symmetric_cmap=False, colorbar_height=0.5, colorbar_fontsize=25):
 	"""Function that plots a signal on the glasser atlas. The surface mesh is the fslaverage in high resolution.
 
 	Author: Serafeim Loukas, EPFL, Nov 2019
@@ -180,11 +185,13 @@ def plot_signal2glasser_3D(signal, path, save_plot, cmap='jet', colorbar = True,
 	combined_sulc = np.concatenate([left_sulc, right_sulc])
 
 	print("For the 3D case, the input arguments 'view' is omitted")
-	view = plotting.view_surf(combined_surface, parcellation_both, cmap = cmap, bg_map = combined_sulc, symmetric_cmap = symmetric_cmap, black_bg = black_bg, colorbar = colorbar)
+	view = plotting.view_surf(combined_surface, parcellation_both, cmap = cmap, \
+		bg_map = combined_sulc, symmetric_cmap = symmetric_cmap, black_bg = black_bg, \
+		colorbar = colorbar, colorbar_height=colorbar_height, colorbar_fontsize=colorbar_fontsize)
 	view.save_as_html(save_plot +'3D_mapped_signal.html')
 	view.open_in_browser()
 
-	print("All done. The 2D plot was saved in: {}".format(save_plot))
+	print("All done. The 3D plot was saved in: {}".format(save_plot))
 	return
 
 
